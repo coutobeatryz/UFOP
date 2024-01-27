@@ -1,0 +1,37 @@
+// Imagine que você está criando um site, onde é necessário testar a idade do cliente para que ele possa ter acesso aos serviços disponíveis no sistema. Caso o cliente tenha 18 anos ou mais, é enviada uma mensagem de boas vindas ao
+cliente, caso contrário, é emitida uma mensagem informando que ele não pode acessar o sistema, pois sua idade é inferior a 18 anos. Faça o cãlculo da idade a partir da data atual e da data de nascimento.
+Crie um programa, em linguagem java, que satisfaça as condições acima citadas.
+
+import java.util.Calendar;
+import java.util.Scanner;
+
+public class Age {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Enter the day your were born: ");
+        int dayBirth = scanner.nextInt();
+        
+        System.out.print("Enter the month: ");
+        int monthBirth = scanner.nextInt();
+        
+        System.out.print("Enter the year: ");
+        int yearBirth = scanner.nextInt();
+        
+        Calendar actualDate = Calendar.getInstance();
+        
+        int age = actualDate.get(Calendar.YEAR) - yearBirth;
+        
+        if (monthBirth > actualDate.get(Calendar.MONTH) + 1 || (monthBirth == actualDate.get(Calendar.MONTH) + 1 && dayBirth > actualDate.get(Calendar.DAY_OF_MONTH))) {
+            age--;
+        }
+        
+        if (age >= 18) {
+            System.out.println("You're " + age + " years old. Please continue.");
+        } else {
+            System.out.println("You're " + age + " years old. You can't continue.");
+        }
+        
+        scanner.close();
+    }
+}
