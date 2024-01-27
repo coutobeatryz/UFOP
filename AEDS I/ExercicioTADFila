@@ -1,0 +1,126 @@
+// Versão da função pesquisar que não utiliza fila auxiliar
+
+TProduto PesquisarFila(TFila *fila, TProduto Item) {
+  TProduto x, y;
+  int N = fila->tamanho;
+  y.codigo = -1; // caso o Item não seja encontrado, y será o produto retornado
+
+  while(N > 0){
+    Desenfileirar(fila, &x);
+    if(x.codigo == Item.codigo){
+    y = x;
+  }
+
+    Enfileirar(x, fila);
+    N--;
+  }
+
+  return y;
+}
+
+------------------------------------------------------------------------------
+/* Exemplo da chamada da função Pesquisar: mostra como ela deve ser utilizada
+esse trecho de código deve estar dentro do "case" do comando switch-case que
+esta relacionado a opção de Menu para pesquisar um produto na fila.
+
+A variável Item e produto são do tipo TProduto e deve ser declarada fora do
+comando swith-case. A fila é passada como referência para a função Pesquisar,
+como ela já é um ponteiro, não é necessário o operador "endereço de"
+representado pelo caractere &. */
+
+printf("\nDigite o codigo do produto que deseja pesquisar: ");
+fflush(stdin);
+scanf("%d", &Item.codigo);
+
+produto = PesquisarFila(fila, &Item);
+if(produto.codigo != -1){
+  printf("\n...:::MSG: Produto encontrado!:::...\n");
+  ImprimirProduto(Item);
+}else{
+  printf("\n...:::MSG: Nao foi possivel encontrar o produto!:::...\n");
+}
+
+----------------------------------------------------------------------------------
+/* Primeira versão da função interseção: não utiliza filas auxiliares */
+void Intersecao1(TFila *f1, TFila *f2, TFila *f3 ){
+    TProduto aux1, aux2;
+    int N1, N2;
+    N1 = f1->tamanho;
+    N2 = f2->tamanho;
+
+    while(N1 > 0){ // controlar elementos da f1
+      Desenfileirar(f1, &aux1);
+      //desenfileirar todos de f2
+      while(N2 > 0) { // controlar elementos da f2
+          Desenfileirar(f2, &aux2);
+          if(aux1.codigo == aux2.codigo)
+          {
+              Enfileirar(f3, aux1);
+          }
+          Enfileirar(f3, aux1);
+          N2--;
+          }
+          N2 = f2->tamanho;
+          Enfileirar(aux1, f1);
+          N1--;
+     }
+  }
+
+------------------------------------------------------------------------------
+/* Segunda versão da função interseção: utiliza filas auuxiliares */
+void Intersecao2(TFila *f1, TFila *f2, TFila *f3 ){
+      TProduto aux1, aux2;
+      TFila faux1, faux2;
+      FFVazia(&faux1);
+      FFVazia(&faux2);
+      while(!Vazia(*f1)){ // controlar elementos da f1
+          Desenfileirar(f1, &aux1);
+          //desenfileirar todos de f2
+          while(!Vazia(*f2)){ // controlar elementos da f2
+                Desenfileirar(f2, &aux2);
+                if(aux1.codigo == aux2.codigo)
+                    Enfileirar(aux1, f3);
+                Enfileirar(aux2, &faux2);
+       }
+      // devolver os elementos de faux2 para f2
+      while(!Vazia(faux2)){
+            Desenfileirar(&faux2, &aux2);
+            Enfileirar(aux2, f2);
+      }
+      Enfileirar(aux1, &faux1);
+  }
+   // devolver os elementos de faux1 para f1
+  while(!Vazia(*faux1)){
+        Desenfileirar(&faux1, &aux1);
+        Enfileirar(aux1, f1);
+  }
+ free(faux1.frente);
+ free(faux2.frente);
+}
+
+/*
+    Terceira versão da função interseção: nao utiliza fila auxiliar e utiliza a
+    função PesquisarFila.
+*/
+
+void Intersecao3(TFila *f1, TFila *f2, TFila *f3 ){
+    TProduto aux1, aux2;
+    int N = f1->tamanho;
+ 
+    while(N > 0){
+          Desenfileirar(f1, &aux1);
+
+      /*
+          Aqui a função PesquisarFila é utilizada para verificar se o
+          produto aux1 desenfileirado de f1 está presente em f2, se estiver,
+          aux1 é enfileirado em f3:
+      */
+
+        aux2 = PesquisarFila(f2, aux1);
+        if(aux2.codigo != -1){
+            Enfileirar(aux1, f3);
+        }
+        Enfileirar(aux1, f1);
+        N--;
+        }
+    }
