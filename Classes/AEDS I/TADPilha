@@ -1,0 +1,195 @@
+// InterfaceGrafica.h
+#ifndef INTERFACE_GRAFICA_H
+#define INTERFACE_GRAFICA_H
+
+void exibirMenu();
+
+#endif
+
+// InterfaceGrafica.c
+#include <stdio.h>
+#include "Pilha.h"
+#include "FuncoesAdicionais.h"
+
+void exibirMenu() {
+    printf("1. Inverter Pilha com Fila Auxiliar\n");
+    printf("2. Inverter Pilha com Duas Pilhas Auxiliares\n");
+    printf("3. Inverter Pilha com Variáveis Auxiliares\n");
+    printf("4. Avaliar Expressão Aritmética\n");
+    printf("5. Sair\n");
+}
+
+// Pilha.h
+#ifndef PILHA_H
+#define PILHA_H
+
+typedef struct Node {
+    int data;
+    struct Node* next;
+} Node;
+
+typedef struct {
+    Node* top;
+} Pilha;
+
+void inicializarPilha(Pilha* pilha);
+void empilhar(Pilha* pilha, int elemento);
+int desempilhar(Pilha* pilha);
+int estaVazia(const Pilha* pilha);
+void liberarPilha(Pilha* pilha);
+
+#endif
+
+// Pilha.c
+#include <stdlib.h>
+#include "Pilha.h"
+
+void inicializarPilha(Pilha* pilha) {
+    pilha->top = NULL;
+}
+
+void empilhar(Pilha* pilha, int elemento) {
+    Node* newNode = (Node*)malloc(sizeof(Node));
+    if (newNode == NULL) {
+        // Tratamento de erro
+        exit(EXIT_FAILURE);
+    }
+    newNode->data = elemento;
+    newNode->next = pilha->top;
+    pilha->top = newNode;
+}
+
+int desempilhar(Pilha* pilha) {
+    if (estaVazia(pilha)) {
+        // Tratamento de erro (pilha vazia)
+        exit(EXIT_FAILURE);
+    }
+    Node* temp = pilha->top;
+    int elemento = temp->data;
+    pilha->top = temp->next;
+    free(temp);
+    return elemento;
+}
+
+int estaVazia(const Pilha* pilha) {
+    return (pilha->top == NULL);
+}
+
+void liberarPilha(Pilha* pilha) {
+    while (!estaVazia(pilha)) {
+        desempilhar(pilha);
+    }
+}
+
+// FuncoesAdicionais.h
+#ifndef FUNCOES_ADICIONAIS_H
+#define FUNCOES_ADICIONAIS_H
+
+void inverterComFilaAuxiliar(Pilha* pilha);
+void inverterComDuasPilhasAuxiliares(Pilha* pilha);
+void inverterComVariaveisAuxiliares(Pilha* pilha);
+
+int avaliarExpressaoAritmetica(const char* expressao, Pilha* pilha);
+
+#endif
+
+// FuncoesAdicionais.c
+#include <string.h>
+#include "FuncoesAdicionais.h"
+
+void inverterComFilaAuxiliar(Pilha* pilha) {
+    Pilha filaAuxiliar;
+    inicializarPilha(&filaAuxiliar);
+
+    while (!estaVazia(pilha)) {
+        empilhar(&filaAuxiliar, desempilhar(pilha));
+    }
+
+    while (!estaVazia(&filaAuxiliar)) {
+        empilhar(pilha, desempilhar(&filaAuxiliar));
+    }
+}
+
+void inverterComDuasPilhasAuxiliares(Pilha* pilha) {
+    Pilha pilhaAux1, pilhaAux2;
+    inicializarPilha(&pilhaAux1);
+    inicializarPilha(&pilhaAux2);
+
+    while (!estaVazia(pilha)) {
+        empilhar(&pilhaAux1, desempilhar(pilha));
+    }
+
+    while (!estaVazia(&pilhaAux1)) {
+        empilhar(&pilhaAux2, desempilhar(&pilhaAux1));
+    }
+
+    while (!estaVazia(&pilhaAux2)) {
+        empilhar(pilha, desempilhar(&pilhaAux2));
+    }
+}
+
+void inverterComVariaveisAuxiliares(Pilha* pilha) {
+    int* array = (int*)malloc(sizeof(int) * 100);  // Assumindo um tamanho máximo da pilha
+    if (array == NULL) {
+        // Tratamento de erro
+        exit(EXIT_FAILURE);
+    }
+
+    int index = 0;
+    while (!estaVazia(pilha)) {
+        array[index++] = desempilhar(pilha);
+    }
+
+    for (int i = 0; i < index; ++i) {
+        empilhar(pilha, array[i]);
+    }
+
+    free(array);
+}
+
+int avaliarExpressaoAritmetica(const char* expressao, Pilha* pilha) {
+    // Implemente a lógica para avaliar a expressão aritmética
+    // Utilize a pilha para verificar o balanceamento dos parênteses, colchetes e chaves
+    // Retorne 1 se a expressão estiver correta, 0 caso contrário
+}
+
+// main.c
+#include "InterfaceGrafica.h"
+#include "Pilha.h"
+#include "FuncoesAdicionais.h"
+
+int main() {
+    Pilha minhaPilha;
+    inicializarPilha(&minhaPilha);
+
+    int escolha;
+    do {
+        exibirMenu();
+        printf("Escolha uma opção: ");
+        scanf("%d", &escolha);
+
+        switch (escolha) {
+            case 1:
+                inverterComFilaAuxiliar(&minhaPilha);
+                break;
+            case 2:
+                inverterComDuasPilhasAuxiliares(&minhaPilha);
+                break;
+            case 3:
+                inverterComVariaveisAuxiliares(&minhaPilha);
+                break;
+            case 4:
+                // Lógica para avaliar expressão aritmética
+                break;
+            case 5:
+                printf("Encerrando o programa.\n");
+                break;
+            default:
+                printf("Opção inválida. Tente novamente.\n");
+        }
+
+    } while (escolha != 5);
+
+    liberarPilha(&minhaPilha);
+    return 0;
+}
