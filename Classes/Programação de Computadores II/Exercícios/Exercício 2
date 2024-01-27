@@ -1,0 +1,21 @@
+// Escreva um programa em Java que leia um vetor de 10 números inteiros e depois escreva os valores lidos na ordem inversa da entrada.
+
+import javax.swing.JOptionPane;
+
+public class NumbersInverse {
+    public static void main(String[] args) {
+        int[] value = new int[10];
+
+        for (int i = 0; i < 10; i++) {
+            String input = JOptionPane.showInputDialog("Type a integer:");
+            value[i] = Integer.parseInt(input);
+        }
+
+        StringBuilder result = new StringBuilder("Number in reverse:\n");
+        for (int i = 9; i >= 0; i--) {
+            result.append(value[i]).append("\n");
+        }
+
+        JOptionPane.showMessageDialog(null, result.toString());
+    }
+}
