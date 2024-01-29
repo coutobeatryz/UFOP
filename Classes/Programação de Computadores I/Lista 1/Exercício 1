@@ -1,0 +1,26 @@
+1. Supondo as declarações int A = 3, int B = 7 e int C = 4, calcule o valor das
+expressões abaixo:
+a) (A + C) > B
+(3 + 4) > 7
+7 > 7
+Falso (7==7)
+
+b) B >= (A + 2)
+7 >= (3 + 2)
+7 >= 5
+Falso (7!=5)
+
+c) C == (B - A)
+4 == (7-3)
+4 == 4
+Verdadeiro
+
+d) (B + A) <= C
+(7+3) <= 4
+10 <= 4
+Falso (10>4 && 10!=4)
+
+e) (C + A) > B
+(4+3) > 7
+7 > 7
+Falso (7==7)
