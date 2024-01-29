@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+// Desenvolva um algoritmo que leia duas notas de prova de um aluno, um trabalho
+// (todos os valores entre 0 e 10)
+// e sua frequência, definindo e imprimindo se ele foi aprovado, reprovado ou se fará
+// prova final. O aluno será
+// reprovado se faltou mais de 15 aulas. Será aprovado se não for reprovado por falta
+// e sua média for maior que
+// 6,0. Caso tenha média menor, deverá fazer prova final. O cálculo da média deve ser
+// feito com peso 3 para a
+// primeira prova, 5 para a segunda prova e 2 para o trabalho
+
+int main()
+{
+    float prova1, prova2, trabalho, frequencia, media;
+
+    printf("Digite a nota da primeira prova: ");
+    scanf("%f", &prova1);
+
+    printf("Digite a nota da segunda prova: ");
+    scanf("%f", &prova2);
+
+    printf("Digite a nota do trabalho: ");
+    scanf("%f", &trabalho);
+
+    printf("Digite a frequencia: ");
+    scanf("%f", &frequencia);
+
+    if (frequencia > 15)
+    {
+        printf("O aluno foi reprovado por falta");
+    }
+    else
+    {
+        media = ((prova1 * 3) + (prova2 * 5) + (trabalho * 2)) / 10;
+
+        if (media >= 6)
+        {
+            printf("O aluno foi aprovado");
+        }
+        else
+        {
+            printf("O aluno fará prova final");
+        }
+    }
+
+    return 0;
+}
