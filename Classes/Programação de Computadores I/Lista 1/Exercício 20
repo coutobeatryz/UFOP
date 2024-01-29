@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+/*
+Escreva uma função que receba como parâmetro um valor n inteiro e positivo e que
+calcule a seguinte soma:
+S := 1 + 1/2 + 1/3 + 1/4 + ... + 1/n
+A função deverá retornar o valor de S
+*/
+float calculosoma(int n)
+{
+    float soma = 0, x;
+    
+    for (x = 1; x <= n; x++)
+    {
+        soma = soma + 1 / x;
+    }
+    
+    return soma;
+}
+
+int main()
+{
+    int n;
+
+    printf("Escreva um valor inteiro e positivo: ");
+    scanf("%d", &n);
+
+    if (n > 0)
+    {
+        printf("O resultado da soma é: %.4f", calculosoma(n));
+    }
+    else
+    {
+        printf("Valor inválido");
+    }
+
+    return 0;
+}
