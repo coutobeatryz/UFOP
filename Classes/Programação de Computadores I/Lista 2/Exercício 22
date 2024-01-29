@@ -1,0 +1,19 @@
+// Construa um programa que leia um número n e imprima n linhas no formato a seguir
+
+#include <stdio.h>
+
+int main (){
+
+    int qtd, i, j, n;
+    printf("Digite a base do triangulo: ");
+    scanf("%d", &qtd);
+
+    for(i=0; i<qtd; i++){
+        for(j=0; j<=i; j++){
+            printf("%d ", j+1);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
