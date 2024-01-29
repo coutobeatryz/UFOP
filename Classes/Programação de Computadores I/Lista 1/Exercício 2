@@ -1,0 +1,15 @@
+2. Supondo as declarações int A = 5, int B = 4, int C = 3 e int D = 6, calcule o valor das
+expressões abaixo:
+
+a) (A > C) && (C <= D)
+(5 > 3) && (3 <= 6)
+Falso (3!=6)
+
+b) (A + B) > 10 || (A + B) == (C + D)
+(5 + 4) > 10 || (5 + 4) == (3 + 6)
+9 > 10 || 9 == 9
+Falso (9<10)
+
+c) (A >= C)&& (D >= C)
+(5 >= 3) && (6 >= 3)
+Falso (5!=3 && 6!=3)
