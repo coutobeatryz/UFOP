@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+// Efetuar a leitura do número de quilowatts consumidos
+// Calcular o valor a ser pago de energia elétrica, sabendo-se que o valor a pagar
+// por quilowatt é de 0,12.
+// Apresentar o valor total a ser pago pelo usuário acrescido de 18% de ICMS.
+
+int main()
+{
+    float kwconsumido, valor, valortotal, icms;
+
+    printf("Digite o numero de quilowatts consumidos: ");
+    scanf("%f", &kwconsumido);
+
+    valor = kwconsumido * 0.12;
+    icms = valor * 0.18;
+    valortotal = valor + icms;
+
+    printf("Valor total a ser pago pelo usuario: %.2f", valortotal);
+
+    return 0;
+}
