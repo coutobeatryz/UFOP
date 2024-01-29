@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+// Codifique uma função que receba por parâmetro a idade de uma pessoa, expressa em
+// anos, meses e dias, e retorne essa idade expressa em dias. Desconsidere anos bissextos.
+
+int idade_dias(int a, int m, int d)
+{
+    // Considerando que 1 mês tem 31 dias e 1 ano tem 365 dias
+    int axd, mxd, calculo;
+    axd = a * 365;
+    mxd = m * 31;
+    calculo = axd + mxd + d;
+
+    return calculo;
+}
+
+int main()
+{
+    int anos, meses, dias, resp;
+
+    printf("Digite a idade expressa em anos, meses e dias respectivamente: ");
+    scanf("%d%d%d", &anos, &meses, &dias);
+
+    resp = idade_dias(anos, meses, dias);
+
+    printf("Idade do usuario em dias: %d", resp);
+
+    return 0;
+}
