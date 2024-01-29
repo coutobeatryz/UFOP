@@ -1,0 +1,26 @@
+// Construa um programa que leia um número n e imprima n linhas no formato a seguir
+#include <stdio.h>
+
+int main()
+{
+    int tamanho;
+    printf("Digite um numero: ");
+    scanf("%d", &tamanho);   
+    for(int i = 0; i < tamanho; i++)
+    {
+        for(int j = 0; j < tamanho; j++)
+        {
+            if(j == i)
+            {
+                printf("-");
+            }
+            else
+            {
+                printf("*");
+            }
+        }
+        printf("\n");
+    }
+
+        return 0;
+    }
