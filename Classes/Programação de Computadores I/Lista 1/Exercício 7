@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    float nota;
+
+    printf("Digite a nota do aluno: ");
+    scanf("%f", &nota);
+
+    if (nota >= 60 && nota <= 100)
+    {
+        printf("Aprovado");
+    }
+    else if (nota < 60 && nota >= 0)
+    {
+        printf("Reprovado");
+    }
+    else if (nota < 0 || nota > 100)
+    {
+        printf("Nota invalida");
+    }
+
+    return 0;
+}
