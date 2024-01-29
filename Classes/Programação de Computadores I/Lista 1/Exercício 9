@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+// Calcule e mostre o salário semanal de uma pessoa, determinado se o número de horas
+// trabalhadas for inferior a 40,
+// a pessoa recebe R$15,00 por hora, senão a pessoa recebe R$600,00 mais R$21,00
+// para cada hora trabalhada acima de 40 horas. O programa deve pedir o número de horas
+// trabalhadas como entrada e deve dar o salário como saída.
+
+int main()
+{
+    float salario, horas;
+
+    printf("Digite o numero de horas trabalhadas: ");
+    scanf("%f", &horas);
+
+    if (horas < 40 && horas > 0)
+    {
+        salario = 15 * horas;
+        printf("O salario semanal corresponde a: %.2f", salario);
+    }
+    else
+    {
+        salario = 600 + (21 * (horas - 40));
+        printf("O salario semanal corresponde a: %.2f", salario);
+    }
+
+    return 0;
+}
