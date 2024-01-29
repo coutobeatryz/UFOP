@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void estacao(int mes, int dia)
+{
+    if (mes == 12 || mes <= 3)
+    {
+        if (dia >= 22 && mes == 12)
+        {
+            printf("Verao");
+        }
+        if (dia < 22 && mes == 12)
+        {
+            printf("Primavera");
+        }
+        if (dia < 20 && mes == 3)
+        {
+            printf("Verao");
+        }
+        if (dia >= 20 && mes == 3)
+        {
+            printf("Outono");
+        }
+    }
+}
+
+int main()
+{
+    int mes, dia;
+
+    printf("Digite o mes e o dia, respectivamente: ");
+    scanf("%d%d", &mes, &dia);
+
+    estacao(mes, dia);
+
+    return 0;
+}
