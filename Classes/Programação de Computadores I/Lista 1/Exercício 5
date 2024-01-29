@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+// Calcular o salário líquido do funcionário sabendo que este é constituído pelo
+// salário bruto mais o valor das horas extras subtraindo 8% de INSS do total.
+// Serão lidos nesse problema o salário bruto, o valor das horas extras e o número de
+// horas extras.
+// Apresentar ao final o salário líquido.
+
+int main()
+{
+    float liquido, valorhoras, bruto, horas, inss;
+
+    printf("Digite o valor do salario bruto: ");
+    scanf("%f", &bruto);
+
+    printf("\nDigite o valor das horas extras: ");
+    scanf("%f", &valorhoras);
+
+    inss = (bruto + valorhoras) * 0.08;
+    liquido = bruto + valorhoras - inss;
+
+    printf("\nValor do salario liquido do funcionario: %.2f", liquido);
+
+    return 0;
+}
