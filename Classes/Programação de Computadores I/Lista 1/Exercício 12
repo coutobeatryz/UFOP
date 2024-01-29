@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+// Desenvolva um algoritmo para que, dados dois valores inteiros entre 1 e 10,
+// calcule e imprima:
+// a média dos números caso a soma deles for menor que 8, seu produto caso a soma
+// seja igual a 8
+// ou a divisão do maior pelo menor caso a soma dos valores for maior que 8.
+
+int main()
+{
+    int x, y, soma, produto;
+    float media, divisao;
+
+    printf("Digite um inteiro entre 1 e 10: ");
+    scanf("%d", &x);
+
+    printf("Digite outro inteiro entre 1 e 10: ");
+    scanf("%d", &y);
+
+    soma = x + y;
+
+    switch (soma)
+    {
+    case 0 ... 7:
+        media = soma / 2.0;
+        printf("A media dos numeros e: %f", media);
+        break;
+    case 8:
+        produto = x * y;
+        printf("O produto dos numeros e: %d", produto);
+        break;
+    case 9 ... 20:
+        divisao = (float)x / y;
+        printf("A divisao dos numeros e: %f", divisao);
+        break;
+    default:
+        printf("Soma invalida");
+    }
+
+    return 0;
+}
