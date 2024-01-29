@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+// Faça um algoritmo que transforme a nota de um aluno em conceito.
+// As notas 10 e 9 receberão conceito A
+// as notas 8 e 7 receberão conceito B
+// as notas 6 e 5 receberão conceito C
+// e abaixo de 5 conceito D.
+
+int main()
+{
+    int nota;
+
+    printf("Digite a nota do aluno: ");
+    scanf("%d", &nota);
+
+    switch (nota)
+    {
+    case 9 ... 10:
+        printf("O aluno recebeu 'A'");
+        break;
+    case 7 ... 8:
+        printf("O aluno recebeu 'B'");
+        break;
+    case 5 ... 6:
+        printf("O aluno recebeu 'C'");
+        break;
+    case 0 ... 4:
+        printf("O aluno recebeu 'D'");
+        break;
+    default:
+        printf("Nota invalida");
+    }
+
+    return 0;
+}
