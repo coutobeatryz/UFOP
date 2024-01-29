@@ -1,0 +1,30 @@
+// Escrever uma função que receba um vetor com 10 valores e retorne quantos destes valores são negativos
+
+#include <stdio.h>
+
+int contarNegativos(int vetor[])
+{
+    int quantidadeNegativos = 0;
+    for(int i = 0; i < 10; i++)
+    {
+        if(vetor[i] < 0)
+        {
+            quantidadeNegativos++;
+        }
+    }
+    return quantidadeNegativos;
+}
+
+int main()
+{
+    int negativos, vetor[10];
+    printf("digite 10 valores: \n");
+    for(int i = 0; i < 10; i++)
+    {
+        scanf("%d", &vetor[i]);
+    }
+    negativos = contarNegativos(vetor); 
+    printf("Foram digitados %d numeros negativos", negativos);
+
+    return 0;
+}
