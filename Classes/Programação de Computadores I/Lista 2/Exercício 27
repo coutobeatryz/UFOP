@@ -1,0 +1,29 @@
+// Implemente uma função que retorne a média dos valores
+// armazenados em um vetor de inteiros de tamanho 10
+
+#include <stdio.h>
+
+int calculo_media(int tam, int vet[tam]){
+    int i;
+    float media, soma = 0;
+    
+    for(i=0; i<10; i++){
+    soma+=vet[i];}
+    media = soma/10;
+    printf("A media eh: %.2f", media);
+
+    return media;
+    }
+
+int main(){
+    int vet[10], i;
+    
+    printf("Digite 10 valores: ");
+    for(i=0; i<10; i++){
+        scanf("%d", &vet[i]);
+    }
+
+    calculo_media(10, vet);
+
+    return 0;
+}
