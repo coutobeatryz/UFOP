@@ -1,0 +1,32 @@
+// implemente uma função que retorne o maior elemento de um vetor de inteiros de tamanho 10.
+
+#include <stdio.h>
+
+int calculo_maior(int tam, int vet[]){
+   int i, maior;
+
+    // maior
+    maior = vet[0];
+    for(i=1; i<tam; i++){
+        if(vet[i] > maior){
+            maior = vet[i];
+        }
+    }
+    printf("O maior numero eh: %d", maior);
+
+
+    return maior;
+}
+
+int main (){
+    int vet[10], i;
+
+    for(i=0; i<10; i++){
+        printf("Digite 10 valores: ");
+        scanf("%d", &vet[i]);
+    }
+
+    calculo_maior(10, vet);
+
+    return 0;
+}
