@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+// Ler um número inteiro e testar se o valor lido termina com 0 (divisível por 10).
+// Em caso positivo, exiba a metade deste número.
+// Caso contrário, exibir a mensagem "O número digitado não termina com 0".
+
+int main()
+{
+    int x, y;
+
+    printf("Digite um numero: ");
+    scanf("%d", &x);
+
+    if (x % 10 == 0)
+    {
+        y = x / 2;
+        printf("A metade do numero: %d", y);
+    }
+    else
+    {
+        printf("O numero digitado nao termina com 0");
+    }
+
+    return 0;
+}
