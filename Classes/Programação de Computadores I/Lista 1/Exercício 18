@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+#define pi 3.14
+
+// Faça uma função que recebe por parâmetro o raio de uma esfera e calcula o seu volume
+
+float volume_esfera(float raio)
+{
+    float volume;
+    volume = pi * pow(raio, 3) * 4 / 3;
+
+    return volume;
+}
+
+int main()
+{
+    float raio, resposta;
+
+    printf("Digite o raio da esfera: ");
+    scanf("%f", &raio);
+
+    resposta = volume_esfera(raio);
+
+    printf("O volume da esfera: %.2f", resposta);
+
+    return 0;
+}
