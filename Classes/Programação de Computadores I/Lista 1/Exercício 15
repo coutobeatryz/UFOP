@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+// Escrever o algoritmo que leia os valores n1 e n2 e imprima o intervalo fechado
+// entre esses dois valores.
+
+int main()
+{
+    int n1, n2, intervalo;
+
+    printf("Escreva o valor de n1: ");
+    scanf("%d", &n1);
+
+    printf("Escreva o valor de n2: ");
+    scanf("%d", &n2);
+
+    for (intervalo = n1; intervalo <= n2; intervalo++)
+    {
+        printf("%d", intervalo);
+
+        if (intervalo < n2)
+        {
+            printf(",");
+        }
+    }
+
+    printf("\n");
+
+    return 0;
+}
