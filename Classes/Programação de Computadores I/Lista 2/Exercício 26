@@ -1,0 +1,39 @@
+// Implemente uma função que, dado um valor, retorne 1 (UM) 
+// se esse valor pertence a um vetor de inteiros de tamanho 10. 
+// Caso não pertença, retorne 0 (ZERO)
+
+#include <stdio.h>
+
+int pertence(int tam, int vet[tam], int n){
+int i, j=0;
+
+   for (i=0;i<10;i++)
+    {
+     if (n==vet[i])
+      printf("1");
+     else
+      j+=1;
+     }
+   
+    if (j>=10){
+     printf("0");}
+
+
+    return(j);
+}
+
+int main (){
+int vet[10], i, n;
+
+    for(i=0; i<10; i++){
+        printf("Digite 10 valores: ");
+        scanf("%d", &vet[i]);
+    }
+
+    printf("Digite um valor qualquer: ");
+    scanf("%d", &n);
+
+    pertence(10, vet, n);
+
+    return 0;
+}
