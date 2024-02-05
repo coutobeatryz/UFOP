@@ -1,0 +1,40 @@
+public class Straight {
+    private Point2D startingPoint;
+    private Point2D finalPoint;
+
+    // Construtor sem argumentos, considerando que a Straight começa e termina no ponto (0,0)
+    public Straight() {
+        this.startingPoint = new Point2D();
+        this.finalPoint = new Point2D();
+    }
+
+    // Construtor que recebe um ponto e considera que a Straight começa na origem e termina no ponto passado como argumento
+    public Straight(Point2D finalPoint) {
+        this.startingPoint = new Point2D();
+        this.finalPoint = finalPoint;
+    }
+
+    // Construtor que recebe duas instâncias da classe Point2D como argumentos
+    public Straight(Point2D startingPoint, Point2D finalPoint) {
+        this.startingPoint = startingPoint;
+        this.finalPoint = finalPoint;
+    }
+
+    // Construtor que recebe quatro valores de ponto flutuante correspondentes às duas coordenadas
+    public Straight(double x1, double y1, double x2, double y2) {
+        this.startingPoint = new Point2D(x1, y1);
+        this.finalPoint = new Point2D(x2, y2);
+    }
+
+    public static void main(String[] args) {
+        // Testando a classe Straight
+        Point2D PointA = new Point2D(1.0, 2.0);
+        Point2D PointB = new Point2D(4.0, 6.0);
+
+        // Criando Straights com diferentes construtores
+        Straight Straight1 = new Straight();
+        Straight Straight2 = new Straight(PointB);
+        Straight Straight3 = new Straight(PointA, PointB);
+        Straight Straight4 = new Straight(2.0, 3.0, 5.0, 7.0);
+    }
+}
