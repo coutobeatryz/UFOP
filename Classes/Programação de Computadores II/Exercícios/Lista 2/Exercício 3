@@ -1,0 +1,34 @@
+public class ComplexNumber {
+    private double realPart;
+    private double imaginaryPart;
+
+    // Construtor que recebe os dois valores (real e imaginário)
+    public ComplexNumber(double realPart, double imaginaryPart) {
+        this.realPart = realPart;
+        this.imaginaryPart = imaginaryPart;
+    }
+
+    // Construtor que recebe somente o valor real (imaginário é considerado como zero)
+    public ComplexNumber(double realPart) {
+        this.realPart = realPart;
+        this.imaginaryPart = 0.0;
+    }
+
+    // Construtor padrão (não recebe argumentos, partes real e imaginária consideradas como zero)
+    public ComplexNumber() {
+        this.realPart = 0.0;
+        this.imaginaryPart = 0.0;
+    }
+
+    public static void main(String[] args) {
+        // Testando a classe ComplexNumber
+        ComplexNumber number1 = new ComplexNumber(2.0, 3.0);
+        ComplexNumber number2 = new ComplexNumber(5.0);
+        ComplexNumber number3 = new ComplexNumber();
+
+        // Exibindo os números complexos criados
+        System.out.println("Number 1: " + number1.realPart + " + " + number1.imaginaryPart + "i");
+        System.out.println("Number 2: " + number2.realPart + " + " + number2.imaginaryPart + "i");
+        System.out.println("Number 3: " + number3.realPart + " + " + number3.imaginaryPart + "i");
+    }
+}
