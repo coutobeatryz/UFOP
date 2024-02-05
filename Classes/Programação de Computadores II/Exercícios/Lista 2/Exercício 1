@@ -1,0 +1,43 @@
+import java.lang.Math;
+
+public class Point2D {
+    private double x;
+    private double y;
+
+    // Construtor padrão
+    public Point2D() {
+        this.x = 0.0;
+        this.y = 0.0;
+    }
+
+    // Construtor para criar pontos com coordenadas na origem
+    public Point2D(double x, double y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    // Método para calcular a distância euclidiana entre dois pontos
+    public double distancia(Point2D otherPoint) {
+        double deltaX = this.x - otherPoint.x;
+        double deltaY = this.y - otherPoint.y;
+        return Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+    }
+
+    // Método sobrecarregado para calcular a distância entre o ponto e a origem
+    public double distance() {
+        Point2D source = new Point2D();
+        return this.distancia(source);
+    }
+
+    public static void main(String[] args) {
+        // Testando a classe
+        Point2D pointA = new Point2D(3.0, 4.0);
+        Point2D pointB = new Point2D(6.0, 8.0);
+
+        // Calculando a distância entre dois pontos
+        System.out.println("Distance between A point and B point: " + pointA.distance(pointB));
+
+        // Calculando a distância entre o ponto e a origem
+        System.out.println("Distance between A point and source: " + pointA.distance());
+    }
+}
