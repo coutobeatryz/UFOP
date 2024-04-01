@@ -1,2 +1,24 @@
 // 1 - Implemente um programa que leia o nome, a idade e o endereço de uma pessoa
 e armazene os dados em uma estrutura. Exiba os dados armazenados ao final.
+
+#include <stdio.h>
+
+struct Person {
+    char name[100];
+    char address[100];
+    int age;
+};
+
+int main()
+{
+    struct Person person;
+    
+    printf("Type the person's name: ");
+    scanf("%99[^\n]", person.name);
+    printf("Type the person's age: ");
+    scanf("%d", &person.age);
+    printf("Type the person's address: ");
+    scanf("%[^\n]", person.address);
+    
+    return 0;
+}
