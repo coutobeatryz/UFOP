@@ -28,7 +28,7 @@ int main() {
         scanf("%s", products[i].name);
         printf("Available quantity: ");
         scanf("%d", &products[i].quantity);
-        printf("Sale price");
+        printf("Sale price: ");
         scanf("%f", &products[i].price);
     }
 
@@ -50,7 +50,7 @@ int main() {
     printf("\nProduct with highest selling price: %s\n", products[idx_biggest_price].name);
     printf("Price: %f", products[idx_biggest_price].price);
     printf("Product with the largest quantity available in stock: %s", products[idx_biggest_quantity].name);
-    printf("Quantity: %s", products[idx_biggest_quantity].quantity);
+    printf("Quantity: %d", products[idx_biggest_quantity].quantity);
 
     free(products);
 
