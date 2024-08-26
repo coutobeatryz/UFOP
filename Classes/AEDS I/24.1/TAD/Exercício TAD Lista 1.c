@@ -21,7 +21,7 @@ int main() {
     }
 
     for (int i = 0; i < products_num; i++){
-        printf("\nProduct registration: \n", i + 1);
+        printf("\nProduct registration %d: \n", i + 1);
         printf("Code: ");
         scanf("%d", &products[i].code);
         printf("Name: ");
